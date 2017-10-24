@@ -51,6 +51,37 @@ assign a constructor to a prototype 11:49
 __proto__ vs protype
 But Firefox and most versions of Safari and Chrome have a __proto__ “pseudo” property (an alternative syntax) that allows you to access an object’s prototype property. You will likely never use this __proto__ pseudo property, but you should know that it exists and it is simply a way to access an object’s prototype property in some browsers.
 
+run in console
+
+function PrintStuff (myDocuments) {
+​this.documents = myDocuments;
+}
+​
+​// We add the print () method to PrintStuff prototype property so that other instances (objects) can inherit it:​
+PrintStuff.prototype.print = function () {
+console.log(this.documents);
+}
+​
+​// Create a new object with the PrintStuff () constructor, thus allowing this new object to inherit PrintStuff's properties and methods.​
+​var newObj = new PrintStuff ("I am a new Object and I can print.");
+​
+​// newObj inherited all the properties and methods, including the print method, from the PrintStuff function. Now newObj can call print directly, even though we never created a print () method on it.​
+newObj.print (); //I am a new Object and I can print.
+
+# Why is Prototype Important and When is it Used?
+These are two important ways the prototype is used in JavaScript, as we noted above:
+
+1. Prototype Property: Prototype-based Inheritance
+Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property.
+ALSO- Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property.
+
+IMPORTANT BANANA EXAMPLE
+
+2. Prototype Attribute: Accessing Properties on Objects
+This prototype chain mechanism is essentially the same concept we have discussed above with the prototype-based inheritance, except we are now focusing specifically on how JavaScript accesses object properties and methods via the prototype object.
+
+
+
 
 
 
