@@ -47,8 +47,9 @@ var beachShoe = new Shoe(10, "blue", "womens", "flip-flop");
 
 assign a constructor to a prototype 11:49
 
-# 3
 
+__proto__ vs protype
+But Firefox and most versions of Safari and Chrome have a __proto__ “pseudo” property (an alternative syntax) that allows you to access an object’s prototype property. You will likely never use this __proto__ pseudo property, but you should know that it exists and it is simply a way to access an object’s prototype property in some browsers.
 
 
 
