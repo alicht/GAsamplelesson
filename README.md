@@ -2,34 +2,33 @@
 
 # What are prototypes?
 
-Prototypes are the underlying blueprint of an object. They are the base version of an object, and are the baseline from which  other instances of that particular object can be created. Javascript provides us with a very nice blueprint object that will pass those similiar properties to every single one of the objects we have made. by default, all objects in JavaScript are automatically created with the property prototype.
+Prototypes are the underlying blueprint of an object, and are the baseline from which other instances of that particular object can be created. Javascript provides us with a very nice blueprint object that will pass those similiar properties to every single one of the objects we have made. by default, all objects in JavaScript are automatically created with the property prototype.
+
+(show an object that has methods we created... but then also show how it has methods that are "invisible" ie that were there the whole time... run in browser and terminal to see results)
+
 
 # Why is Prototype Important and When is it Used?
 These are two important ways the prototype is used in JavaScript, as we noted above:
 
 1. Prototype Property: Prototype-based Inheritance
 Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property.
-ALSO- Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property.
+In JavaScript, we implement inheritance with the prototype property.
 
 Looking at concept of inheritance and how it relates JavaScript. 
 
--- why would coders use it?
-INHERITANCE- passing down properties is called inheritance.
-Inheritance helps prevent overcoding multiple properties and methods into similiar objects.
-
-Programmers love inheritance, because it keeps our code neat and organized, and because it saves us from having to define all the properties belonging to an Object each time we need to make a new instance.
 
 
-# 2 Prototypal Inheritance / Constructors
+
+# 2 Prototypal Constructors
 When we create a use case of an Object, we use something called a Constructor. Constructors are used to create instances of objects.
 
-Using inheritance we can create new objects with our existing objects as prototypes. 
+Let's start by creating a new object.
 ```
 //new object
 var shoe = {size:6, gender: "womens", construction: "slipper" }
 ```
 
-We say that an Object instance inherits from its parent object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent object. In our Person example, this means that every single time we make a new Person, they have access to all of the properties defined in the Constructor (firstName, lastName, eyeColor, etc)...and this is known as Prototypal Inheritance (more commonly referenced as just inheritance). 
+We say that an Object instance inherits from its parent object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc)...and this is known as Prototypal Inheritance (more commonly referenced as just inheritance). 
 
 Using inheritance we can create new objects with our existing objects as prototypes. 
 ```
@@ -46,6 +45,7 @@ magicShoe.jewels = "ruby";
 magicShoe.travelAction = "click heels";
 magicShoe.actionRequired = 3;
 ```
+# 3 Methods
 
 How to create other types of shoes
 var shoe = {size: undefined, gender: undefined, constructor: undefined}
@@ -56,7 +56,7 @@ Class- a set of objects that all share and inherit from the same basic prototype
 Lets list common properties that we can expect ALL shoes to have and we're ready to build a constructor for our class.
 Constructor- will allow us to set up inheritance while also assigning specific property values.
 ```
-// we capitolize this function to distinguish it as a maker of an entire class of objects
+// we capitalize this function to distinguish it as a maker of an entire class of objects
 function Shoe(shoeSize, shoeColor, shoeGender, constructionStyle){
 this.size = shoeSize; 
 thus.color = shoeColor;
@@ -86,28 +86,15 @@ Now when we call
 beachShoe.takeOff(); //will look and see that beachShoe has this takeOff method and since it doesn't, will go a level above and look at the Shoe object which DOES have it and will thus call it from there. 
 ```
 
-__proto__ vs protype
-But Firefox and most versions of Safari and Chrome have a __proto__ “pseudo” property (an alternative syntax) that allows you to access an object’s prototype property. You will likely never use this __proto__ pseudo property, but you should know that it exists and it is simply a way to access an object’s prototype property in some browsers.
 
 run in console
-```
-function PrintStuff (myDocuments) {
-this.documents = myDocuments;
-}
-
-// We add the print () method to PrintStuff prototype property so that other instances (objects) can inherit it:​
-PrintStuff.prototype.print = function () {
-console.log(this.documents);
-}
-
-// Create a new object with the PrintStuff () constructor, thus allowing this new object to inherit PrintStuff's properties and methods.
-var newObj = new PrintStuff ("I am a new Object and I can print.");
-
-// newObj inherited all the properties and methods, including the print method, from the PrintStuff function. Now newObj can call print directly, even though we never created a print () method on it.​
-newObj.print (); //I am a new Object and I can print.
-```
 
 
+-- why would coders use it?
+INHERITANCE- passing down properties is called inheritance.
+Inheritance helps prevent overcoding multiple properties and methods into similiar objects.
+
+Programmers love inheritance, because it keeps our code neat and organized, and because it saves us from having to define all the properties belonging to an Object each time we need to make a new instance.
 
 
 
@@ -117,4 +104,7 @@ newObj.print (); //I am a new Object and I can print.
 
 # see also 
 http://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/
+
+Inline-style: 
+![alt text](https://memegenerator.net/instance/72706299/david-pumpkins-snl-any-questions "Logo Title Text 1")
 
