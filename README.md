@@ -60,10 +60,24 @@ this.construction = constructionStyle;
 ```
 
 Javascript's "new" keyword produces a new Object of the class (ie instantiates it)
+```
 var beachShoe = new Shoe(10, "blue", "womens", "flip-flop");
-
-assign a constructor to a prototype 11:49
-
+```
+assign functions to a prototype
+```
+Shoe.prototype = {
+putOn: function() {alert ("Shoe's On!");}, 
+takeOff: function() {alert ("Shoe's Off!");}
+}
+```
+Now every subsequent shoe function will inherit these for when it needs them. 
+```
+var beachShoe = new Shoe(10, "blue", "womens", "flip-flop");
+```
+Now when we call 
+```
+beachShoe.takeOff(); //will look and see that beachShoe has this takeOff method and since it doesn't, will go a level above and look at the Shoe object which DOES have it and will thus call it from there. 
+```
 
 __proto__ vs protype
 But Firefox and most versions of Safari and Chrome have a __proto__ “pseudo” property (an alternative syntax) that allows you to access an object’s prototype property. You will likely never use this __proto__ pseudo property, but you should know that it exists and it is simply a way to access an object’s prototype property in some browsers.
