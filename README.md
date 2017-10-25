@@ -24,9 +24,6 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 # Pre-ES6 example
 
-# 2 Prototypal Constructors
-We create Constructor functions with our prototypes, and we use these Constructors to easily create new instances of an object. 
-
 Let's start by creating a new object using Object.create.
 ```
 //new object
@@ -47,20 +44,21 @@ magicShirt.usage = "daily";
 ```
 # But this could get messy... introducing regular Constructor functions for prototypes.
 
-An Object inherits from its parent Object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent Object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc). This is known as Prototypal Inheritance.
+An Object inherits from its parent Object ie the prototype. Each time we create a new Object, that Object immediately and automatically has access to all of the properties defined in its parent Object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc). This is known as Prototypal Inheritance.
 
 Using inheritance we can create new objects with our existing objects as prototypes. 
 
 
 Now we're ready to build a Constructor function .
-Constructor- will allow us to set up inheritance while also assigning specific property values.
+Constructor- will allow us to set up inheritance while also assigning specific property values. 
+ 
 ```
 // we capitalize this function to distinguish it as a maker of an entire class of objects
 function Shirt(shirtSize, shirtColor, shirtGender, constructionStyle){
-this.size = shirtSize; 
-thus.color = shirtColor;
-this.gender = shirtGender;
-this.construction = constructionStyle;
+  this.size = shirtSize; 
+  this.color = shirtColor;
+  this.gender = shirtGender;
+  this.construction = constructionStyle;
 }
 ```
 
