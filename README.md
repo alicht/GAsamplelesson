@@ -3,15 +3,15 @@
 * ES6 introduces the class keyword. This new class syntax just provides an alternative way to create plain old JavaScript objects.
 
 # What are prototypes?
-
-* Every object in JavaScript has a special related object called the prototype. Prototypes are simple ways to share behaviour and data between multiple objects.
+Prototypes are the underlying blueprint of an object, and form the baseline from which other instances of an object can be created. 
+* Every object in JavaScript has a special related object called the prototype. Through using Prototypes we can simply and efficiently share behavior and data between multiple objects.
 
 * In code a prototype looks like this:
 ```
-vehicle.__proto__ = machine
+vehicle.prototype = machine
 // machine is the prototype of vehicle
 
-car.__proto__ = vehicle
+car.prototype = vehicle
 // vehicle is the prototype of car
 ```
 This is a prototype chain:
@@ -21,9 +21,7 @@ car -> vehicle -> machine
 When JavaScript looks for a property that doesn't exist in a particular object (e.g. car), it will attempt to look for that property in each object on the prototype chain (e.g. first in vehicle, then in machine). It will walk along the chain until it finds the attribute or return undefined if it can't be found
 
 ----
-Prototypes are the underlying blueprint of an object, and are the baseline from which other instances of an object can be created. Javascript provides us with a very nice blueprint object that will pass those similiar properties to every single one of the objects we have made. by default, all objects in JavaScript are automatically created with the property prototype.
 
-(show an object that has methods we created... but then also show how it has methods that are "invisible" ie that were there the whole time... run in browser and terminal to see results)
 
 
 # Why is Prototype Important and When is it Used?
