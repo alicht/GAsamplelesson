@@ -22,57 +22,37 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 ----
 
-
-
-# Why is Prototype Important and When is it Used?
-These are two important ways Prototypes are used in JavaScript:
-
-# 1. Prototype-based Inheritance
-
--- but first: what is INHERITANCE and why would coders want to use it?
-INHERITANCE- passing down properties is called inheritance. Inheritance helps prevent overcoding multiple properties and methods into similiar objects.
-
-Programmers love inheritance, because it keeps our code neat and organized, and because it saves us from having to define all the properties belonging to an Object each time we need to make a new instance.
-
-Prototype is important in JavaScript because JavaScript does not have Class based inheritance (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property.
-
+# Pre-ES6 example
 
 # 2 Prototypal Constructors
-We create Constructor functions with our prototypes, and we can easily create new instances of an object. 
-When we create a use case of an Object, we use something called a Constructor. Constructors are used to create instances of objects.
+We create Constructor functions with our prototypes, and we use these Constructors to easily create new instances of an object. 
 
-Let's start by creating a new object.
+Let's start by creating a new object using Object.create.
 ```
 //new object
-var shirt = {size:6, gender: "womens", construction: "slipper" }
+var shirt = {size:6, gender: "womens", construction: "slipper" };
 ```
-
-We say that an Object instance inherits from its parent object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc)...and this is known as Prototypal Inheritance (more commonly referenced as just inheritance). 
-
-Using inheritance we can create new objects with our existing objects as prototypes. 
+We can build new objects using this existing object as a prototype.: 
 ```
 // creating a new object that uses shirt as a prototype
 var magicShirt = Object.create ( shirt ); // whatever we pass in will be the prototype for the new object
--if we logged out magicShirt we'd see that it's exactly the same as shoe because it inherited all of shoes properties
+-if we logged out magicShirt we'd see that it's exactly the same as shirt because it inherited all of shoes properties
 ```
 
-can add new properties to magicShoe: 
+can add new properties to magicShirt: 
 ```
-magicShirt.jewels = "ruby";
-magicShirt.travelAction = "click heels";
-magicShirt.actionRequired = 3;
+magicShirt.color = "ruby";
+magicShirt.material = "cotton";
+magicShirt.usage = "daily";
 ```
-# 3 Instantiating an object with values
+# But this could get messy... introducing regular Constructor functions for prototypes.
 
-How to create other types of shirts
-```
-var shirt = {size: undefined, gender: undefined, constructor: undefined}
-// now to automate our property assignment
-```
-We need to determine common properties of a shoe class. 
-Class- a set of objects that all share and inherit from the same basic prototype
+An Object inherits from its parent Object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent Object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc). This is known as Prototypal Inheritance.
 
-Lets list common properties that we can expect ALL shoes to have and we're ready to build a constructor for our class.
+Using inheritance we can create new objects with our existing objects as prototypes. 
+
+
+Now we're ready to build a Constructor function .
 Constructor- will allow us to set up inheritance while also assigning specific property values.
 ```
 // we capitalize this function to distinguish it as a maker of an entire class of objects
@@ -82,23 +62,21 @@ thus.color = shirtColor;
 this.gender = shirtGender;
 this.construction = constructionStyle;
 }
-// this is going to refer to the new instance of the class that is made
 ```
 
 Javascript's "new" keyword produces a new Object of the class (ie instantiates it)
 ```
 var beachShirt = new Shirt(10, "blue", "womens", "flip-flop");
+
 ```
 
 # 4
 * ES6
 
-In JavaScript we have Function Constructors, which have been the common way to build new objects until ES6. Unfortunately Function Constructors can be quite confusing to understand (especially if you want to model inheritance). To alleviate this, ES6 introduces the class syntax.
+In JavaScript we have Function Constructors, which have been the common way to build new objects until ES6. Unfortunately Function Constructors can be quite confusing to understand (especially if you want to model inheritance). To alleviate this, ES6 introduced the class syntax.
 
 Classes in ES6 don't add any functionality to what we already have in the language, they are just a simpler syntax for building the same objects as we had before.
 
-
-run in console
 
 Although OOP can help us keep our Javascript nice and clean, it's still easy to duplicate code when defining multiple classes. Consider the following example...
 ```
@@ -139,7 +117,7 @@ Here we have two classes: Dog and Cat. They have some things in common: name, br
 
 Imagine that we had to create a number of other classes - Horse, Goat, Pig, etc. - all of which share the same aforementioned properties but also have methods that are particular to the class.
 
-How could we refactor this so that we don't have to keep writing out the shared class properties and methods. Enter inheritance (think genetics, not money from your rich uncle)
+How could we refactor this so that we don't have to keep writing out the shared class properties and methods. Enter inheritance
 ```
 class Animal{
   constructor(name, breed){
@@ -216,12 +194,15 @@ class Dog extends Animal {
 ```
 super() calls the constructor of the parent class. In the above example, once super does what it needs to do, it then runs through the rest of Dogs constructor.
 
+In order to give an instance of a child class context (i.e., be able to use this), you must call super.
 
 
 
-
-
-
+# Review
+What is a class? What is new? How are they related?
+What does it mean to use "inheritance" when working with classes?
+How do we indicate that one class inherits from another?
+What does super mean?
 
 
 
