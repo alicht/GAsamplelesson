@@ -4,6 +4,13 @@
 
 Prototypes are the underlying blueprint of an object. They are the base version of an object, and are the baseline from which  other instances of that particular object can be created. Javascript provides us with a very nice blueprint object that will pass those similiar properties to every single one of the objects we have made. by default, all objects in JavaScript are automatically created with the property prototype.
 
+# Why is Prototype Important and When is it Used?
+These are two important ways the prototype is used in JavaScript, as we noted above:
+
+1. Prototype Property: Prototype-based Inheritance
+Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property.
+ALSO- Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property.
+
 Looking at concept of inheritance and how it relates JavaScript. 
 
 -- why would coders use it?
@@ -100,17 +107,9 @@ var newObj = new PrintStuff ("I am a new Object and I can print.");
 newObj.print (); //I am a new Object and I can print.
 ```
 
-# Why is Prototype Important and When is it Used?
-These are two important ways the prototype is used in JavaScript, as we noted above:
 
-1. Prototype Property: Prototype-based Inheritance
-Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property.
-ALSO- Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property.
 
-IMPORTANT BANANA EXAMPLE
 
-2. Prototype Attribute: Accessing Properties on Objects
-This prototype chain mechanism is essentially the same concept we have discussed above with the prototype-based inheritance, except we are now focusing specifically on how JavaScript accesses object properties and methods via the prototype object.
 
 # Namespacing
 
