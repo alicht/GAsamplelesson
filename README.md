@@ -17,22 +17,28 @@ Programmers love inheritance, because it keeps our code neat and organized, and 
 When we create a use case of an Object, we use something called a Constructor. Constructors are used to create instances of objects.
 
 Using inheritance we can create new objects with our existing objects as prototypes. 
+```
 //new object
 var shoe = {size:6, gender: "womens", construction: "slipper" }
+```
 
 We say that an Object instance inherits from its parent object ie the prototype. What we mean is that each time we create a new Object (using the keyword 'new'), that Object immediately and automatically has access to all of the properties defined in the parent object. In our Person example, this means that every single time we make a new Person, they have access to all of the properties defined in the Constructor (firstName, lastName, eyeColor, etc)...and this is known as Prototypal Inheritance (more commonly referenced as just inheritance). 
 
 Using inheritance we can create new objects with our existing objects as prototypes. 
+```
 //new object
 var shoe = {size:6, gender: "womens", construction: "slipper" }
 // creating a new object that uses shoe as a prototype
 var magicShoe = Object.create ( shoe ); // whatever we pass in will be the prototype for the new object
 -if we logged out magicShoe we'd see that it's exactly the same as shoe because it inherited all of shoes properties
+```
 
 can add new properties to magicShoe: 
+```
 magicShoe.jewels = "ruby";
 magicShoe.travelAction = "click heels";
 magicShoe.actionRequired = 3;
+```
 
 How to create other types of shoes
 var shoe = {size: undefined, gender: undefined, constructor: undefined}
@@ -41,7 +47,8 @@ We need to determine common properties of a shoe class.
 Class- a set of objects that all share and inherit from the same basic prototype
 
 Lets list common properties that we can expect ALL shoes to have and we're ready to build a constructor for our class.
-Constructor- will allow us to set up inheritance while also assigning specific property values. 
+Constructor- will allow us to set up inheritance while also assigning specific property values.
+```
 // we capitolize this function to distinguish it as a maker of an entire class of objects
 function Shoe(shoeSize, shoeColor, shoeGender, constructionStyle){
 this.size = shoeSize; 
@@ -50,6 +57,7 @@ this.gender = shoeGender;
 this.construction = constructionStyle;
 }
 // this is going to refer to the new instance of the class that is made
+```
 
 Javascript's "new" keyword produces a new Object of the class (ie instantiates it)
 var beachShoe = new Shoe(10, "blue", "womens", "flip-flop");
