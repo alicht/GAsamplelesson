@@ -98,7 +98,7 @@ Classes in ES6 are honestly just syntactic sugar- they don't add any additional 
 
 ## Implementing JavaScript's new "class" keyword 
 
-Let's take a long at how a constructor would look like when we use class:
+Let's take a look at what a constructor looks like when we use class:
 
 ```
 class Pikachu {
@@ -128,13 +128,14 @@ class Snorlax {
 }
 ```
 
-We can see we have two classes: Pikachu and Snorlax. They have some things in common: number, type, fastAttack and chargeAttack. But they also have differences- in that Pikachu has a hiddenPower attribute and a walking function, whereas Snorlax has a weight attribute and an eats function.  
 
-##### This is fine except...
+We see we have two classes: Pikachu and Snorlax. They have some things in common: number, type, fastAttack and chargeAttack. But they also have differences- Pikachu has a hiddenPower attribute and a walking function, whereas Snorlax has a weight attribute and an eats function.  
+
+#### This is fine except...
 
 What if we wanted to create a number of other classes of Pokemon- like Gyarados, Dragonite, Farfetch'd, etc.- all of whom share some of the aforementioned properties but also have their own unique methods or attributes? 
 
-How could we refactor this so that we don't have to keep writing out the shared class properties and methods? 
+How could we refactor this so that we don't have to keep writing out shared class properties and methods? 
 
 A: Create a base class will abstract this: 
 ```
@@ -148,7 +149,7 @@ class Pokemon{
 }
 ```
 
-Here we've defined an Pokemon class. It contains the general properties and methods that can be found in just about all Pokemon. What's great about this is that Snorlax and Pikachu could just reference this "parent" Pokemon class and thus the only things we'd need to put in their "child" class definitions are the properties and methods that are unique to them.
+Here we've defined an Pokemon class. It contains the general properties and methods that can be found in just about all Pokemon. What's great about this is that Snorlax and Pikachu can now just reference this "parent" Pokemon class and thus the only things we'd need to put in their "child" class definitions are the properties and methods that are unique to them.
 
 
 #### Now let's take our parent Pokemon class and apply it to its "children":
