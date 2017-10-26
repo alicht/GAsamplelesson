@@ -43,7 +43,7 @@ If we logged out magicShirt we'd get:
 ```
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper"}
 ```
-magicShirt's properties are **exactly** the same as shirt because it literally used shirt and inherited all of shirt's properties.
+magicShirt's properties are **exactly** the same as shirt because it **literally** used shirt and inherited all of shirt's properties.
 
 #### Why is this?
 
@@ -55,7 +55,7 @@ magicShirt.brand = "Gap";
 magicShirt.material = "cotton";
 magicShirt.usage = "daily";
 ```
-and they'd be added to magicShirt:
+and they'd appear in our magicShirt object:
 ```
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper", brand: "Gap", material: "cotton", usage: "daily"}
 ```
