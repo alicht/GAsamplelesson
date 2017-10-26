@@ -32,7 +32,6 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 Let's start by creating a new object using Object.create.
 ```
-//new object
 var shirt = {size:6, color: "red", gender: "mens", construction: "slipper" };
 ```
 We can build new objects using this existing object we just created as a prototype: Let's create a new object that uses shirt as a prototype:
