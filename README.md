@@ -4,22 +4,23 @@
 Prototypes are the underlying blueprint of an object, and form the baseline from which other instances of an object can be created. 
 * Every object in JavaScript has a special related object called the prototype. Through using Prototypes we can simply and efficiently share behavior and data between multiple objects.
 
-* In code a prototype looks like this:
+* Let's look at an example to help us visualize how Prototypes work. We'll use 3 Objects: machine, vehicle, car.  
 ```
-machine
+machine 
+// ie just an example of a base object that we'll use here
 ```
 ^^ the base object
 
 ```
-vehicle.prototype = machine
+console.log(vehicle.prototype) // machine
 // machine is the prototype of vehicle
 ```
 and then
 ```
-car.prototype = vehicle
+console.log(car.prototype) // vehicle
 // vehicle is the prototype of car
 ```
-This is a prototype chain:
+This is a how a prototype chain works:
 ```
 car -> vehicle -> machine
 ```
