@@ -163,6 +163,7 @@ class Pikachu extends Pokemon {
   }
 }
 
+
 class Snorlax extends Pokemon {
   constructor(number, type, fastAttack, chargeAttack, weight){
     this.weight = weight;;
