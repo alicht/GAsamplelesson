@@ -1,4 +1,12 @@
-# GAsamplelesson
+# Prototypes and Inheritance
+
+## Learning objectives
+
+* Explain what Prototypes are and demonstrate why they're an essential JavaScript feature
+* Build a basic prototype and then a Constructor function, and show why Constructors are more efficient 
+* ES6's major syntax change, and the new method of creating Constructors  
+* Use the ```new``` keyword to create new objects with shared properties
+* Create a class that inherits from another using ```extends``` and ```super``` keywords
 
 ## What are prototypes?
 Prototypes are the underlying blueprint of an object, and form the baseline from which other instances of an object can be created. 
