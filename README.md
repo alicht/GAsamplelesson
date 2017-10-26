@@ -27,7 +27,7 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 ----
 
-## Pre-ES6 example
+## Let's take a look at Prototypes and how to construct them (Pre-ES6 example)
 ### Simple way to create objects via their prototype
 
 Let's start by creating a new object using Object.create.
