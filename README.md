@@ -38,11 +38,11 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 ## Let's take a look at Prototypes and how to construct them (ie Pre-ES6)
 ### Simple way to create objects via their prototype
 
-Let's start by creating a new object using Object.create.
+Let's start by creating a new object:
 ```
 var shirt = {size:6, color: "red", gender: "mens", construction: "slipper" };
 ```
-We can build new objects using this existing object we just created as a prototype: Let's create a new object that uses shirt as a prototype:
+Now let's build a new object that uses the object we just created (ie shirt) as a prototype: 
 ```
 var magicShirt = Object.create ( shirt ); // whatever we pass in the parenthese will serve as  the prototype for the new object.
 ```
@@ -51,7 +51,7 @@ If we logged out magicShirt we'd get:
 ```
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper"}
 ```
-magicShirt's properties are **exactly** the same as shirt because it **literally** used shirt and inherited all of shirt's properties.
+magicShirt's properties are **exactly** the same as shirt because it **literally** used shirt and thus inherited all of shirt's properties.
 
 #### Why is this?
 
