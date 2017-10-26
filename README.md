@@ -75,125 +75,119 @@ Classes in ES6 are honestly just syntactis sugar- they don't add any additional 
 Let's take a long at how a constructor would look like when we use class:
 
 ```
-class Dog {
-  constructor(name, breed, tail){
-    this.name = name;
-    this.breed = breed;
-    this.waggingTail = tail;
-    this.diet = [];
+class Pikachu {
+  constructor(number, type, fastAttack, chargeAttack, hiddenPower){
+    this.number = number;
+    this.type = type;
+    this.fastAttack = fastAttack;
+    this.chargeAttack = chargeAttack;
+    this.hiddenPower = hiddenPower;
   }
-  eat(food){
-    this.diet.push(food);
-    console.log(this.diet);
-  }
-  bark(){
-    return `Bark! Hello, this is dog. My name is ${this.name}`
+  walks(){
+    return `I'll follow you wherever you go, and I can also do ${this.hiddenPower}!`
   }
 }
 
-class Cat {
-  constructor(name, breed, numLives){
-    this.name = name;
-    this.breed = breed;
-    this.numLives = numLives;
-    this.diet = [];
+class Snorlax {
+  constructor(number, type, fastAttack, chargeAttack, weight){
+    this.number = number;
+    this.type = type;
+    this.fastAttack = fastAttack;
+    this.chargeAttack = chargeAttack;
+    this.weight = weight;
   }
-  eat(food){
-    this.diet.push(food);
-    console.log(this.diet);
-  }
-  meow(){
-    return `Meow! I am not a dog! My name is ${this.name}`
+  eats(){
+    return `Zzzzz! I am massively large and weigh ' + ${this.weight} +' pounds!`
   }
 }
 ```
 
-Here we have two classes: Dog and Cat. They have some things in common: name, breed, diet and eat. They do differ, however, in that one barks and the other meows.
+We can see we have two classes: Pikachu and Snorlax. They have some things in common: number, type, fastAttack and chargeAttack. They also have differences- in that Pikachu has hiddenPower attribute and a walking function, whereas Snorlax has a weight attribute and an eats function.  
 
-Imagine that we had to create a number of other classes - Horse, Goat, Pig, etc. - all of which share the same aforementioned properties but also have methods that are particular to the class.
+##### This is fine except...
 
-How could we refactor this so that we don't have to keep writing out the shared class properties and methods. Enter inheritance
+What if we wanted to create a number of other classes of Pokemon- like Gyarados, Dragonite, Farfetch'd, etc.- all of whom share some of the aforementioned properties but also have their own unique methids or attributes? 
+
+How could we refactor this so that we don't have to keep writing out the shared class properties and methods. Let's create a base class to abstract this: 
 ```
-class Animal{
-  constructor(name, breed){
-    this.name = name;
-    this.breed = breed;
-    this.diet = [];
-  }
-  eat(food){
-    this.diet.push(food);
-    console.log(this.diet);
+class Pokemon{
+  constructor(number, type, fastAttack, chargeAttack){
+    this.number = number;
+    this.type = type;
+    this.fastAttack = fastAttack;
+    this.chargeAttack = chargeAttack;
   }
 }
 ```
 
-const dog = new Animal("Fido", "Beagle");
-Here we've defined an Animal class. It contains the properties and methods that are common among specific animal classes. Wouldn't it be nice if Dog and Cat could just reference this "parent" Animal class so that the only things we need to put in their "child" class definitions are the properties and methods that are particular to them (e.g., bark, meow).
+Here we've defined an Pokemon class. It contains the general properties and methods that can be found in just about all Pokemon. What's great about this is thatcan Snorlax and Pikachu could just reference this "parent" Pokemon class and thus the only things we need to put in their "child" class definitions are the properties and methods that are unique to them.
 
-Lucky for us, we can do that...
 ```
-class Animal {
-  constructor(name, breed){
-    this.name = name;
-    this.breed = breed;
-    this.diet = [];
-  }
-  eat(food){
-    this.diet.push(food);
-    console.log(this.diet);
-  }
-}
-
-class Dog extends Animal {
-  constructor(name, breed, tail){
-    this.waggingTail = tail;
-  }
-  bark(){
-    return `Bark! Hello, this is dog. My name is ${this.name}`
-  }
-}
-
-class Cat extends Animal {
-  constructor(name, breed, numLives){
-    this.numLives = numLives;
-  }
-  meow(){
-    return `Meow! I am not a dog! My name is ${this.name}`
+class Pokemon{
+  constructor(number, type, fastAttack, chargeAttack){
+    this.number = number;
+    this.type = type;
+    this.fastAttack = fastAttack;
+    this.chargeAttack = chargeAttack;
   }
 }
 ```
-The clincher is extends. Whatever class is to the left of the extends keyword should inherit the properties and methods that belongs to the class to the right of the keyword. Let's see if this works...
-
-// Let's test out our parent. It just needs a name and breed.
+Now let's apply it to the "children":
 ```
-const goat = new Animal("Gregory", "Mountain Goat");
+class Pikachu extends Pokemon {
+  constructor(number, type, fastAttack, chargeAttack, hiddenPower){
+    this.hiddenPower = hiddenPower;
+  }
+  walks(){
+    return `I'll follow you wherever you go, and I can also do ${this.hiddenPower}!`
+  }
+}
+
+class Snorlax extends Pokemon {
+  constructor(number, type, fastAttack, chargeAttack, weight){
+    this.weight = weight;;
+  }
+  eats(){
+    return `Zzzzz! I am massively large and weigh ' + ${this.weight} +' pounds!`
+  }
+}
+```
+### Extends
+The keyword "extends" plays a key role here. Whatever class is to the left of the extends keyword should inherit the properties and methods that belongs to the class to the right of the keyword. 
+
+// Let's test out our parent class (ie Pokemon). 
+```
+const magikarp = new Pokemon(129, "water", "splash", "struggle");
 ```
 // And now the children.
 ```
-const fido = new Dog("Fido", "Beagle", true);
-console.log(fido); // "this is not defined"
+const yellowpikachu = new Pikachu(24, "electric", "thunder shock", "thunder", "hiddenPower");
+console.log(yellowpikachu); // "this is not defined"
 ```
-That didn't work out the way we expected. That's because we're forgetting one thing. When creating an instance of a child class, we need to make sure it invokes the constructor of the parent (Animal) class.
+That didn't work out the way we expected, and that's because we forgot something: 
 
-We can do that using the keyword super()
+### Super
+When creating an instance of a child class, we need to make sure it invokes the constructor of the parent (Pokemon) class.
+
+We do this by using the keyword super()
 ```
-class Dog extends Animal {
-  constructor(name, breed, tail){
-    super(name, breed);
-    this.waggingTail = tail;
+class Pikachu extends Pokemon {
+  constructor(number, type, fastAttack, chargeAttack, hiddenPower){
+    super(number, type, fastAttack, chargeAttack);
+    this.hiddenPower = hiddenPower;
   }
-  bark(){
-    return `Bark! Hello, this is dog. My name is ${this.name}`
+  walks(){
+    return `I'll follow you wherever you go, and I can also do ${this.hiddenPower}!`
   }
 }
 ```
-super() calls the constructor of the parent class. In the above example, once super does what it needs to do, it then runs through the rest of Dogs constructor.
+The super function calls the constructor of the parent class. In the above example, once super does what it needs to do, it then runs through the rest of Pikachu's constructor.
 
-In order to give an instance of a child class context (i.e., be able to use this), you must call super.
-
+In order to give an instance of a child class context (i.e., be able to use this), we must call super.
 
 
 # Review
+What are Prototypes and why are they useful?
 What is a class? What is new? How are they related?
 What does it mean to use "inheritance" when working with classes?
 How do we indicate that one class inherits from another?
