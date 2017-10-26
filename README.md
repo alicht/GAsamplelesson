@@ -55,7 +55,7 @@ magicShirt's properties are **exactly** the same as shirt because it **literally
 
 #### Why is this?
 
-An Object inherits from its parent Object, ie its prototype. Each time we create a new Object, that Object immediately and automatically has access to all of the properties defined in its parent Object. In our shirt example, this means that every single time we make a new Shirt, it has access to all of the properties defined in the original object we created. 
+An Object inherits from its parent Object, ie its prototype. Each time we create a new Object, that Object automatically has access to all of the properties that were defined in its parent Object. In our shirt example, this means that every single time we make an instance of a new shirt, it has access to all of the properties defined in the original object we created. 
 
 #### Furthermore, we can assign new properties to magicShirt: 
 ```
@@ -71,9 +71,9 @@ console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", constr
 ## But... this is VERY time consuming. 
 
 ### A more efficient way to create new objects (via use of its prototype) is by using Constructor functions.
-Constructor function- a way to create an object "type" that can be used multiple times without having to redefine the object every time to meet each particular instance's needs. 
+Constructor function- a way to create an object's baseline blueprint that can be used multiple times without having to redefine the object every time to meet each particular instance's needs. 
 
-Let's build a Constructor function- ie a function that will allow us to set up inheritance while also assigning specific property values. 
+Let's build a Constructor function- namely, a function that will allow us to set up inheritance while also assigning specific property values. 
 
 We'll start by creating a shirt Object again:
  
