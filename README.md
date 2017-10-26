@@ -25,7 +25,6 @@ car -> vehicle -> machine
 ```
 When JavaScript looks for a property that doesn't exist in a particular object (ie "car"), it will attempt to look for that property in each object on the prototype chain (ie first in vehicle, then in machine). It will walk along the chain until it finds the attribute or return undefined if it can't be found.
 
-----
 
 ## Let's take a look at Prototypes and how to construct them (Pre-ES6 example)
 ### Simple way to create objects via their prototype
@@ -61,7 +60,7 @@ and they'd be added to magicShirt:
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper", brand: "Gap", material: "cotton", usage: "daily"}
 ```
 
-## But... this is VERY time consuming. A more efficient way to create new objects via use of its prototypes is by using Constructor functions.
+### But... this is VERY time consuming. A more efficient way to create new objects via use of its prototypes is by using Constructor functions.
 Constructor function- a way to create an object "type" that can be used multiple times without having to redefine the object every time to meet each particular instance's needs. 
 
 Let's build a Constructor function- ie a function that will allow us to set up inheritance while also assigning specific property values. 
