@@ -6,6 +6,11 @@ Prototypes are the underlying blueprint of an object, and form the baseline from
 
 * In code a prototype looks like this:
 ```
+machine
+```
+^^ the base object
+
+```
 vehicle.prototype = machine
 // machine is the prototype of vehicle
 ```
