@@ -60,12 +60,14 @@ and they'd appear in our magicShirt object:
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper", brand: "Gap", material: "cotton", usage: "daily"}
 ```
 
-### But... this is VERY time consuming. A more efficient way to create new objects via use of its prototypes is by using Constructor functions.
+## But... this is VERY time consuming. 
+
+### A more efficient way to create new objects (via use of its prototype) is by using Constructor functions.
 Constructor function- a way to create an object "type" that can be used multiple times without having to redefine the object every time to meet each particular instance's needs. 
 
 Let's build a Constructor function- ie a function that will allow us to set up inheritance while also assigning specific property values. 
 
-we'll start by creating a shirt Object again:
+We'll start by creating a shirt Object again:
  
 ```
 function Shirt(shirtSize, shirtColor, shirtGender, constructionStyle){
@@ -85,11 +87,14 @@ var beachShirt = new Shirt(10, "blue", "womens", "flip-flop");
 console.log(beachShirt); // Object{size: 10, color: "blue", gender: "women's", construction: "flip-flop"}
 ```
 
-# Gamechanger! ES6 introduces some new gamechanging syntax
 
-Prior to ES6, the common way to build new objects in JavaScript was by using Constructor functions. However Function Constructors can be quite confusing to understand and to alleviate this, ES6 introduced the "class" keyword. 
+# Breaking News! 
 
-Classes in ES6 are honestly just syntactic sugar- they don't add any additional functionality to what we already had in the language (ie constructors), they are just a simpler syntax for building the same objects as we had before.
+## ES6 introduces new gamechanging syntax
+
+Prior to ES6, the common way to build new objects in JavaScript was by using Constructor functions. However Function Constructors can be quite confusing to understand and to help alleviate this, ES6 introduced the "class" keyword. 
+
+Classes in ES6 are honestly just syntactic sugar- they don't add any additional functionality to what we already had in the language (ie constructors), and are just a simpler syntax for building the same objects as we had before.
 
 ## Implementing JavaScript's new "class" keyword 
 
