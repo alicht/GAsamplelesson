@@ -1,8 +1,6 @@
 # GAsamplelesson
 
-* ES6 introduces the class keyword. This new class syntax just provides an alternative way to create plain old JavaScript objects.
-
-# What are prototypes?
+## What are prototypes?
 Prototypes are the underlying blueprint of an object, and form the baseline from which other instances of an object can be created. 
 * Every object in JavaScript has a special related object called the prototype. Through using Prototypes we can simply and efficiently share behavior and data between multiple objects.
 
@@ -22,35 +20,33 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 ----
 
-# Pre-ES6 example
+## Pre-ES6 example
+### Simple way to create objects via their prototype
 
 Let's start by creating a new object using Object.create.
 ```
 //new object
 var shirt = {size:6, gender: "womens", construction: "slipper" };
 ```
-We can build new objects using this existing object as a prototype.: 
+We can build new objects using this existing object as a prototype: 
 ```
 // creating a new object that uses shirt as a prototype
 var magicShirt = Object.create ( shirt ); // whatever we pass in will be the prototype for the new object
--if we logged out magicShirt we'd see that it's exactly the same as shirt because it inherited all of shoes properties
+-if we logged out magicShirt we'd see that it's exactly the same as shirt because it inherited all of shirt's properties
 ```
+An Object inherits from its parent Object ie the prototype. Each time we create a new Object, that Object immediately and automatically has access to all of the properties defined in its parent Object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc).
 
-can add new properties to magicShirt: 
+###### can add new properties to magicShirt: 
 ```
 magicShirt.color = "ruby";
 magicShirt.material = "cotton";
 magicShirt.usage = "daily";
 ```
-# But this could get messy... introducing regular Constructor functions for prototypes.
+## But this is very time consuming... a faster way is by introducing regular Constructor functions for prototypes.
 
-An Object inherits from its parent Object ie the prototype. Each time we create a new Object, that Object immediately and automatically has access to all of the properties defined in its parent Object. In our Shirt example, this means that every single time we make a new Shirt, they have access to all of the properties defined in the Constructor (size, gender, construction, etc). This is known as Prototypal Inheritance.
+Let's build a Constructor function- ie a function that will allow us to set up inheritance while also assigning specific property values. 
 
-Using inheritance we can create new objects with our existing objects as prototypes. 
-
-
-Now we're ready to build a Constructor function .
-Constructor- will allow us to set up inheritance while also assigning specific property values. 
+we'll start by creating a shirt Object again:
  
 ```
 // we capitalize this function to distinguish it as a maker of an entire class of objects
@@ -68,15 +64,16 @@ var beachShirt = new Shirt(10, "blue", "womens", "flip-flop");
 
 ```
 
-# 4
-* ES6
-
-In JavaScript we have Function Constructors, which have been the common way to build new objects until ES6. Unfortunately Function Constructors can be quite confusing to understand (especially if you want to model inheritance). To alleviate this, ES6 introduced the class syntax.
-
-Classes in ES6 don't add any functionality to what we already have in the language, they are just a simpler syntax for building the same objects as we had before.
+# ES6 introduces some new "gamechanging" syntax
 
 
-Although OOP can help us keep our Javascript nice and clean, it's still easy to duplicate code when defining multiple classes. Consider the following example...
+In JavaScript we have Function Constructors, which have been the common way to build new objects until ES6. Unfortunately Function Constructors can be quite confusing to understand. To alleviate this, ES6 introduced the "class" keyword. 
+Classes in ES6 are honestly just syntactis sugar- they don't add any additional functionality to what we already had in the language (ie constructors), they are just a simpler syntax for building the same objects as we had before.
+
+## Implementing JavaScript's new "class" keyword 
+
+Let's take a long at how a constructor would look like when we use class:
+
 ```
 class Dog {
   constructor(name, breed, tail){
