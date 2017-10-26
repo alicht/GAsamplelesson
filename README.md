@@ -49,7 +49,7 @@ magicShirt's properties are **exactly** the same as shirt because it literally u
 
 An Object inherits from its parent Object, ie its prototype. Each time we create a new Object, that Object immediately and automatically has access to all of the properties defined in its parent Object. In our shirt example, this means that every single time we make a new Shirt, it has access to all of the properties defined in the original object we created. 
 
-###### Furthermore, we can assign new properties to magicShirt: 
+#### Furthermore, we can assign new properties to magicShirt: 
 ```
 magicShirt.brand = "Gap";
 magicShirt.material = "cotton";
