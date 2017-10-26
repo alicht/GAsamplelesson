@@ -198,7 +198,7 @@ class Pikachu extends Pokemon {
 ```
 The super function calls the constructor of the parent class. In the above example, once super does what it needs to do, it then runs through the rest of Pikachu's constructor.
 
-In order to give an instance of a child class context (i.e., be able to use this), we must call super.
+In order to give an instance of a child class context (i.e. to be able to use this), we must call super.
 
 
 # Review
