@@ -8,7 +8,9 @@ Prototypes are the underlying blueprint of an object, and form the baseline from
 ```
 vehicle.prototype = machine
 // machine is the prototype of vehicle
-
+```
+and then
+```
 car.prototype = vehicle
 // vehicle is the prototype of car
 ```
@@ -16,7 +18,7 @@ This is a prototype chain:
 ```
 car -> vehicle -> machine
 ```
-When JavaScript looks for a property that doesn't exist in a particular object (e.g. car), it will attempt to look for that property in each object on the prototype chain (e.g. first in vehicle, then in machine). It will walk along the chain until it finds the attribute or return undefined if it can't be found
+When JavaScript looks for a property that doesn't exist in a particular object (ie "car"), it will attempt to look for that property in each object on the prototype chain (ie first in vehicle, then in machine). It will walk along the chain until it finds the attribute or return undefined if it can't be found.
 
 ----
 
