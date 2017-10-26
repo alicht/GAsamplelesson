@@ -203,11 +203,14 @@ In order to give an instance of a child class context (i.e., be able to use this
 
 # Review
 What are Prototypes and why are they useful?
-What is a class? What is new? How are they related?
-What does it mean to use "inheritance" when working with classes?
-How do we indicate that one class inherits from another?
-What does super mean?
 
+What is a class? What is new? How are they related?
+
+What does it mean to use "inheritance" when working with classes?
+
+How do we indicate that one class inherits from another?
+
+What does super mean?
 
 
 
@@ -224,6 +227,4 @@ What does super mean?
 # see also 
 http://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/
 
-Inline-style: 
-![alt text](https://memegenerator.net/instance/72706299/david-pumpkins-snl-any-questions "Logo Title Text 1")
 
