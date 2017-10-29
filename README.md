@@ -40,7 +40,7 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 
 Let's start by creating a new object:
 ```
-var shirt = {size:6, color: "red", gender: "mens", construction: "slipper" };
+var shirt = {size:6, color: "red", gender: "mens", pattern: "plaid" };
 ```
 Now let's build a new object that uses the object we just created (ie shirt) as a prototype: 
 ```
@@ -49,7 +49,7 @@ var magicShirt = Object.create ( shirt ); // whatever we pass in the parenthese 
 
 If we logged out magicShirt we'd get:
 ```
-console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper"}
+console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", pattern: "plaid"}
 ```
 magicShirt's properties are **exactly** the same as shirt because it **literally** used shirt and thus inherited all of shirt's properties.
 
@@ -65,7 +65,7 @@ magicShirt.usage = "daily";
 ```
 and they'd appear in our magicShirt object:
 ```
-console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", construction: "slipper", brand: "Gap", material: "cotton", usage: "daily"}
+console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", pattern: "plaid", brand: "Gap", material: "cotton", usage: "daily"}
 ```
 
 ## But... this is VERY time consuming. 
