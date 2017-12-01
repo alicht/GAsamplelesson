@@ -19,12 +19,12 @@ machine
 ```
 ^^ the base object
 
-```
+``` javascript
 console.log(vehicle.prototype) // machine
 // machine is the prototype of vehicle
 ```
 and then
-```
+``` javascript
 console.log(car.prototype) // vehicle
 // vehicle is the prototype of car
 ```
@@ -39,16 +39,16 @@ When JavaScript looks for a property that doesn't exist in a particular object (
 ### Simple way to create objects via their prototype
 
 Let's start by creating a new object:
-```
+```javascript
 var shirt = {size:6, color: "red", gender: "mens", pattern: "plaid" };
 ```
 Now let's build a new object that uses the object we just created (ie shirt) as a prototype: 
-```
+``` javascript
 var magicShirt = Object.create ( shirt ); // whatever we pass in the parenthese will serve as  the prototype for the new object.
 ```
 
 If we logged out magicShirt we'd get:
-```
+``` javascript
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", pattern: "plaid"}
 ```
 magicShirt's properties are **exactly** the same as shirt because it **literally** used shirt and thus inherited all of shirt's properties.
@@ -58,13 +58,13 @@ magicShirt's properties are **exactly** the same as shirt because it **literally
 An Object inherits from its parent Object, ie its prototype. Each time we create a new Object, that Object automatically has access to all of the properties that were defined in its parent Object. In our shirt example, this means that every single time we make an instance of a new shirt, it has access to all of the properties defined in the original object we created. 
 
 #### Furthermore, we can assign new properties to magicShirt: 
-```
+``` javascript
 magicShirt.brand = "Gap";
 magicShirt.material = "cotton";
 magicShirt.usage = "daily";
 ```
 and they'd appear in our magicShirt object:
-```
+``` javascript
 console.log(magicShirt); // Object{size: 6, color: "red", gender: "mens", pattern: "plaid", brand: "Gap", material: "cotton", usage: "daily"}
 ```
 
@@ -77,7 +77,7 @@ Let's build a Constructor function- namely, a function that will allow us to set
 
 We'll start by creating a shirt Object again:
  
-```
+``` javascript
 function Shirt(shirtSize, shirtColor, shirtGender, constructionStyle){
   this.size = shirtSize; 
   this.color = shirtColor;
@@ -89,7 +89,7 @@ function Shirt(shirtSize, shirtColor, shirtGender, constructionStyle){
 
 ### Now that we have our Constructor function, let's create a new object
 Objects defined using a Constructor function are then instantiated by using the "new" keyword.
-```
+``` javascript
 var beachShirt = new Shirt(10, "blue", "womens", "flip-flop");
 
 console.log(beachShirt); // Object{size: 10, color: "blue", gender: "women's", construction: "flip-flop"}
@@ -108,7 +108,7 @@ Classes in ES6 are honestly just syntactic sugar- they don't add any additional 
 
 Let's take a look at what a constructor looks like when we use class:
 
-```
+``` javascript
 class Pikachu {
   constructor(number, type, fastAttack, chargeAttack, hiddenPower){
     this.number = number;
@@ -146,7 +146,7 @@ What if we wanted to create a number of other classes of Pokemon- like Gyarados,
 How could we refactor this so that we don't have to keep writing out shared class properties and methods? 
 
 A: Create a base class will abstract this: 
-```
+``` javascript
 class Pokemon{
   constructor(number, type, fastAttack, chargeAttack){
     this.number = number;
@@ -161,7 +161,7 @@ Here we've defined an Pokemon class. It contains the general properties and meth
 
 
 #### Now let's take our parent Pokemon class and apply it to its "children":
-```
+``` javascript
 class Pikachu extends Pokemon {
   constructor(number, type, fastAttack, chargeAttack, hiddenPower){
     this.hiddenPower = hiddenPower;
@@ -185,11 +185,11 @@ class Snorlax extends Pokemon {
 The keyword "extends" plays a key role here. Whatever class is to the left of the extends keyword should inherit the properties and methods that belongs to the class to the right of the keyword. 
 
 Let's test out our parent class (ie Pokemon). 
-```
+``` javascript
 const magikarp = new Pokemon(129, "water", "splash", "struggle");
 ```
 And now the children.
-```
+``` javascript
 const yellowpikachu = new Pikachu(24, "electric", "thunder shock", "thunder", "hiddenPower");
 console.log(yellowpikachu); // "this is not defined"
 ```
@@ -199,7 +199,7 @@ That didn't work out the way we expected, and that's because we forgot something
 When creating an instance of a child class, we need to make sure it invokes the constructor of the parent (ie Pokemon) class.
 
 We do this by using the keyword "super":
-```
+``` javascript
 class Pikachu extends Pokemon {
   constructor(number, type, fastAttack, chargeAttack, hiddenPower){
     super(number, type, fastAttack, chargeAttack);
